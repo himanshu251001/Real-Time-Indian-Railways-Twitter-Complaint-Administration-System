@@ -1,0 +1,20 @@
+1).\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties                                          #start zookeeper(differnt cmd prmt in kafka)
+
+2).\bin\windows\kafka-server-start.bat .\config\server.properties                                                 #start kafka(differnt cmd prmt in kafka)
+
+kafka-topics.bat --create --bootstrap-server localhost:9092 --topic twitterstream   #Create Topic(need to create once)
+
+3)kafka-console-producer.bat --broker-list localhost:9092 --topic twitterstream                                            #to start producer to write(differnt cmd prmt in \kafka\bin\windows)
+-------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------
+
+4)kafka-console-consumer.bat --topic twitterstream --bootstrap-server localhost:9092 --from-beginning                     #to start consumer to listen(differnt cmd prmt in \kafka\bin\windows)
+
+.\bin\windows\zookeeper-server-stop.bat .\config\zookeeper.properties                                          #to terminate zookeeper
+
+.\bin\windows\kafka-server-stop.bat .\config\server.properties                                                 #to terminate server
+
+
+NOTE: --topic is user-defined, need not to be same as "twitterstream", you may make it anything. 
+NOTE :-If kafka and zookeeper stops clear kafka logs at(C:\tmp\kafka-logs)
